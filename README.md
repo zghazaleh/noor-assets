@@ -111,6 +111,7 @@ it.* Scaffolded in `.claude/skills/`, invoked with `/inbox-zero` etc.
 | **`contacts`** | Look up / dedupe / enrich contacts across the Contacts server and `contacts.csv`; keep them in sync. |
 | **`intro-broker`** | The WhatsApp→email intro workflow: read the thread, find the email, research the company on the web, draft the intro with links, draft → I send → confirm back on WhatsApp. |
 | **`personal-admin`** | The "license plate" pattern: update a doc in Drive/Box (preserving existing fields), then propagate the change to web portals via browser automation. |
+| **`daily-sweep`** | `what-did-i-miss` on a timer. Run via `/loop` so triage happens on its own; diffs against the last sweep, stays quiet when nothing's new, never mutates on a scheduled run. |
 
 **The feedback loop is the product:**
 
@@ -153,8 +154,15 @@ after inactivity), two rules follow:
    (email, files, calendar, contacts). `what-did-i-miss` degrades gracefully:
    it triages whatever surfaces are reachable and says which it skipped.
 
-The recurring "what did I miss?" sweep is a natural fit for a scheduled session
-(`/loop`) or a SessionStart hook.
+The recurring "what did I miss?" sweep is wired two ways:
+
+- **SessionStart hook** (`.claude/settings.json` → `scripts/session-greeting.sh`):
+  every session opens with the date in Pacific, which chat bridges are reachable
+  this session, and a nudge to run the triage. The script is cloud-safe — it
+  detects missing `wacli`/`imsg` and says so instead of erroring.
+- **Scheduled sweep** (`/loop` + the `daily-sweep` skill): `/loop 3h /daily-sweep`
+  runs the triage on an interval, leading with what's *new* since the last run and
+  staying quiet when nothing needs me. Scheduled runs are read-only by contract.
 
 ---
 
@@ -180,10 +188,11 @@ noor-assets/
 ├── CLAUDE.md                 # operating rules — auto-loaded every session
 ├── README.md                 # this proposal
 ├── .claude/
-│   ├── settings.json         # approval tiers + hooks
+│   ├── settings.json         # approval tiers + SessionStart hook
 │   ├── CONNECTORS.md         # which MCP server = which capability, + CLI patterns
 │   └── skills/
 │       ├── what-did-i-miss/SKILL.md
+│       ├── daily-sweep/SKILL.md      # what-did-i-miss on a /loop timer
 │       ├── inbox-zero/SKILL.md
 │       ├── contacts/SKILL.md
 │       ├── intro-broker/SKILL.md
@@ -192,10 +201,13 @@ noor-assets/
 │   ├── README.md
 │   ├── contacts.csv          # the spreadsheet that's worth more than it looks
 │   └── docs/                 # agent-readable mirrors of Drive/Box docs
+│       ├── car_info.example.md
+│       └── family_info.example.md
 ├── memory/
 │   └── preferences.md        # my taste, encoded
 └── scripts/
-    └── setup.sh              # macOS: install wacli / telegram / imsg bridges
+    ├── setup.sh              # macOS: install wacli / telegram / imsg bridges
+    └── session-greeting.sh   # printed by the SessionStart hook (cloud-safe)
 ```
 
 > This setup is still a little ugly. CLIs are rough, permissions are annoying,

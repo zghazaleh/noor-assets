@@ -1,2 +1,4 @@
 name,email,phone,whatsapp,telegram,linkedin,category,location,notes
-Example Person,example@example.com,+1-415-555-0100,+14155550100,@example,https://linkedin.com/in/example,close,San Francisco,"Met at YC; introduced me to X. Hates phone calls."
+Example Close Friend,friend@example.com,+1-415-555-0100,+14155550100,@examplefriend,https://linkedin.com/in/example,friends,San Francisco,"Met at YC; introduced me to X. Hates phone calls. OK to text low-stakes one-liners."
+Example Recruiter,recruiter@example.com,+1-415-555-0142,,,https://linkedin.com/in/example-recruiter,recruiting,Paris,"French tech recruiter. Use for intro-broker requests targeting EU hiring."
+Example Investor,gp@examplevc.com,,,,https://linkedin.com/in/example-gp,investors,Menlo Park,"GP at Example VC. Email only — always draft, never one-liner. Social nuance: high."
