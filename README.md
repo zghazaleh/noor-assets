@@ -10,6 +10,10 @@ stack." The philosophy is identical:
 > The agent doesn't *answer questions*. It *operates across my tools* to finish
 > small real-world jobs, and asks for approval at the moments that matter.
 
+**New here? Read [`USAGE.md`](./USAGE.md)** — the human operating guide (what to
+say, what comes back, when it stops to ask). This README is the architecture;
+`USAGE.md` is the manual; `CLAUDE.md` is the agent's own rulebook.
+
 The model and harness are different (Claude Code instead of Codex), and that
 changes the *mechanics* in ways that are actually advantages — see below.
 
