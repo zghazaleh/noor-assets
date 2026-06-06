@@ -1,34 +1,35 @@
-# Family info — example mirror (replace with the real doc, keep synced to Drive/Box)
+# Family info — seed data (clearly fake, but complete so workflows run end-to-end)
 
-# This is an agent-readable mirror of a doc whose live source of truth lives in
-# Google Drive / Box. Edit here, then push the change back per the personal-admin
-# skill, preserving every field you weren't explicitly asked to change.
+# Agent-readable mirror; live source of truth in Drive/Box. Preserve fields you
+# weren't asked to change.
 
 household:
   timezone: America/Los_Angeles
-  address_on_file: <street, city, ZIP>          # private — never surface unless asked
+  address_on_file: 1200 Market St, San Francisco, CA 94102   # private
 
 members:
-  - name: Ziad
+  - name: Ziad Ghazaleh
     role: self
     email: zghazaleh@gmail.com
-  - name: <spouse>
+  - name: Layla Ghazaleh
     role: spouse
-    phone: <number>                             # private
-    notes: <close contact — low-stakes one-liners may skip the approval gate>
-  - name: <child>
+    email: layla.ghazaleh@example.com
+    phone: +1-415-555-0101          # private
+    notes: Close contact — low-stakes one-liners ("running 10 late") may skip the approval gate.
+  - name: Yusuf Ghazaleh
     role: child
-    dob: <YYYY-MM-DD>
-    school: <school>
+    dob: 2018-09-12
+    school: Mission Bay Elementary
 
-key_dates:                                       # surface these in daily-sweep
-  - 2026-09-01  <example: school year starts>
-  - <anniversary / birthdays>
+key_dates:                          # surface upcoming ones in what-did-i-miss / daily-sweep
+  - 2026-09-12  Yusuf's birthday
+  - 2026-06-21  Anniversary (Ziad & Layla)
+  - 2026-08-24  School year starts
 
 providers:
-  pediatrician: <name / portal>
-  dentist: <name / portal>
+  pediatrician: Bay Kids Pediatrics
+  dentist: Marina Dental
 
 # Notes:
-# - Anything marked "private" stays out of digests unless the task needs it.
-# - key_dates is what what-did-i-miss / daily-sweep should watch for upcoming events.
+# - "private" fields stay out of digests unless the task needs them.
+# - key_dates is what the sweep watches for upcoming events.

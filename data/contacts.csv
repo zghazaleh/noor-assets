@@ -1,4 +1,9 @@
 name,email,phone,whatsapp,telegram,linkedin,category,location,notes
-Example Close Friend,friend@example.com,+1-415-555-0100,+14155550100,@examplefriend,https://linkedin.com/in/example,friends,San Francisco,"Met at YC; introduced me to X. Hates phone calls. OK to text low-stakes one-liners."
-Example Recruiter,recruiter@example.com,+1-415-555-0142,,,https://linkedin.com/in/example-recruiter,recruiting,Paris,"French tech recruiter. Use for intro-broker requests targeting EU hiring."
-Example Investor,gp@examplevc.com,,,,https://linkedin.com/in/example-gp,investors,Menlo Park,"GP at Example VC. Email only — always draft, never one-liner. Social nuance: high."
+Layla Ghazaleh,layla.ghazaleh@example.com,+1-415-555-0101,+14155550101,,,family,San Francisco,"Wife. Close contact — low-stakes one-liners may skip the approval gate. Default 'my wife' / 'Layla'."
+Omar Haddad,omar.haddad@example.com,+1-415-555-0112,+14155550112,@omarh,https://linkedin.com/in/omar-haddad,friends,San Francisco,"Close friend from YC. Introduced me to several founders. Hates phone calls — text or email only."
+Nadia Rahman,nadia@brightpathtalent.com,+33-6-12-34-56-78,,,https://linkedin.com/in/nadia-rahman,recruiting,Paris,"Technical recruiter, BrightPath Talent. Specializes in EU/France AI hiring. Use for intro-broker requests targeting Europe."
+Daniel Cho,dcho@meridianvc.com,+1-650-555-0173,,,https://linkedin.com/in/daniel-cho,investors,Menlo Park,"GP at Meridian VC. Email only — always draft, never a one-liner. Social nuance: high. Led our seed."
+Priya Menon,priya.menon@nimbuslabs.ai,+1-408-555-0150,+14085550150,@priyam,https://linkedin.com/in/priya-menon,work,San Jose,"Eng lead at Nimbus Labs (portfolio co). OK to WhatsApp for quick coordination."
+Marcus Webb,marcus@webbautocare.com,+1-415-555-0188,,,,vendors,San Francisco,"Mechanic — Webb Auto Care. Handles the Lexus. Use for car service scheduling."
+Sofia Alvarez,sofia.alvarez@example.com,+1-310-555-0196,+13105550196,@sofiaa,https://linkedin.com/in/sofia-alvarez,friends,Los Angeles,"College friend. Visits SF a few times a year. Fine to text."
+Hassan Karim,hkarim@summitinsurance.com,+1-800-555-0124,,,,vendors,Phoenix,"Insurance agent, Summit Insurance. Auto + home policies. Contact for the license-plate / registration updates."
