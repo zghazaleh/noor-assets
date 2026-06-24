@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__*__search_threads",
+      "mcp__*__get_thread",
+      "mcp__*__list_drafts",
+      "mcp__*__list_labels",
+      "mcp__*__create_draft",
+      "mcp__*__search_files",
+      "mcp__*__search_files_keyword",
+      "mcp__*__read_file_content",
+      "mcp__*__get_file_content",
+      "mcp__*__download_file_content",
+      "mcp__*__get_file_metadata",
+      "mcp__*__list_events",
+      "mcp__*__get_event",
+      "mcp__*__suggest_time",
+      "mcp__*__searchContacts",
+      "mcp__*__getContact",
+      "mcp__*__getEmails",
+      "mcp__*__find_duplicates",
+      "mcp__*__recordings_list",
+      "mcp__*__search_meetings",
+      "Read",
+      "Write(./data/**)",
+      "Write(./memory/**)",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "ask": [
+      "mcp__*__create_event",
+      "mcp__*__update_event",
+      "mcp__*__delete_event",
+      "mcp__*__upload_file",
+      "mcp__*__upload_file_version",
+      "mcp__*__create_file",
+      "mcp__*__updateContact",
+      "mcp__*__createContact",
+      "mcp__*__merge_contacts",
+      "mcp__*__createNote",
+      "Bash(wacli send:*)",
+      "Bash(tgcli send:*)",
+      "Bash(imsg send:*)"
+    ],
+    "deny": [
+      "mcp__*__delete_file",
+      "mcp__*__delete_label"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/session-greeting.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "_comment": "Approval tiers from CLAUDE.md, enforced by the harness. allow = read + draft (safe). ask = any mutation or outbound message. deny = destructive file/label ops, handled case-by-case with explicit confirmation. Wildcards match tool suffixes across rotating MCP server IDs. The SessionStart hook prints a greeting + which chat bridges are reachable, and nudges /what-did-i-miss."
+}

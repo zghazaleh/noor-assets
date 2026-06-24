@@ -1,0 +1,6 @@
+# Local, ephemeral, and secret material — never commit
+.env
+*.local
+data/contacts.real.csv
+data/docs/*.real.md
+*.tmp.*
